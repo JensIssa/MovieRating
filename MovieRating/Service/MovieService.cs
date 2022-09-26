@@ -15,6 +15,7 @@ public class MovieService : IService
         int reviewsPlaceholder = 0;
         
 
+        //hello gamer
     }
 
     public double GetAverageRateFromReviewer(int reviewer)
