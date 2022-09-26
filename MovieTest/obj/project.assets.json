@@ -1670,6 +1670,16 @@
         "build": {
           "build/netcoreapp2.1/xunit.runner.visualstudio.props": {}
         }
+      },
+      "MovieRating/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/MovieRating.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MovieRating.dll": {}
+        }
       }
     }
   },
@@ -5966,30 +5976,36 @@
         "xunit.runner.visualstudio.2.4.3.nupkg.sha512",
         "xunit.runner.visualstudio.nuspec"
       ]
+    },
+    "MovieRating/1.0.0": {
+      "type": "project",
+      "path": "../MovieRating/MovieRating.csproj",
+      "msbuildProject": "../MovieRating/MovieRating.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "Microsoft.NET.Test.Sdk >= 17.1.0",
+      "MovieRating >= 1.0.0",
       "coverlet.collector >= 3.1.2",
       "xunit >= 2.4.1",
       "xunit.runner.visualstudio >= 2.4.3"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\kille\\.nuget\\packages\\": {}
+    "C:\\Users\\beraw\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kille\\RiderProjects\\MovieRating\\MovieTest\\MovieTest.csproj",
+      "projectUniqueName": "C:\\Users\\beraw\\OneDrive\\Dokumenter\\GitHub\\MovieRating\\MovieTest\\MovieTest.csproj",
       "projectName": "MovieTest",
-      "projectPath": "C:\\Users\\kille\\RiderProjects\\MovieRating\\MovieTest\\MovieTest.csproj",
-      "packagesPath": "C:\\Users\\kille\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kille\\RiderProjects\\MovieRating\\MovieTest\\obj\\",
+      "projectPath": "C:\\Users\\beraw\\OneDrive\\Dokumenter\\GitHub\\MovieRating\\MovieTest\\MovieTest.csproj",
+      "packagesPath": "C:\\Users\\beraw\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\beraw\\OneDrive\\Dokumenter\\GitHub\\MovieRating\\MovieTest\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\kille\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\beraw\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -6000,7 +6016,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\beraw\\OneDrive\\Dokumenter\\GitHub\\MovieRating\\MovieRating\\MovieRating.csproj": {
+              "projectPath": "C:\\Users\\beraw\\OneDrive\\Dokumenter\\GitHub\\MovieRating\\MovieRating\\MovieRating.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

@@ -25,12 +25,31 @@ public class MovieService : IService
 
     public double GetAverageRateFromReviewer(int reviewer)
     {
-        throw new NotImplementedException();
+        int rates = 0;
+        foreach (var review in _repository.getAllReviews())
+        {
+            if (review.Reviewer == reviewer)
+            {
+                rates++;
+            }
+        }
+        double average = rates / GetNumberOfReviewsFromReviewer(reviewer);
+        return average;
     }
 
     public int GetNumberOfRatesByReviewer(int reviewer, int rate)
     {
-        throw new NotImplementedException();
+        int rates = 0;
+        foreach (var review in _repository.getAllReviews())
+        {
+            review.Reviewer = reviewer;
+            if (rates==review.Grade)
+            {
+                rates++;
+            }
+        }
+
+        return rates;
     }
 
     public int GetNumberOfReviews(int movie)
