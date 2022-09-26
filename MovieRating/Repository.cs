@@ -4,7 +4,7 @@ public class Repository : IRepository
 {
     public int GetNumberOfReviewsFromReviewer(int reviewer)
     {
-        throw new NotImplementedException();
+        
     }
 
     public double GetAverageRateFromReviewer(int reviewer)
