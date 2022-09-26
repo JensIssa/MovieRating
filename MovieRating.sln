@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieRating", "MovieRating\MovieRating.csproj", "{EFA33907-45F4-491D-9A8D-AD986B3BD1EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieTest", "MovieTest\MovieTest.csproj", "{701A2E18-27D3-4C75-B104-1761639F528E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EFA33907-45F4-491D-9A8D-AD986B3BD1EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFA33907-45F4-491D-9A8D-AD986B3BD1EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFA33907-45F4-491D-9A8D-AD986B3BD1EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFA33907-45F4-491D-9A8D-AD986B3BD1EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{701A2E18-27D3-4C75-B104-1761639F528E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{701A2E18-27D3-4C75-B104-1761639F528E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{701A2E18-27D3-4C75-B104-1761639F528E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{701A2E18-27D3-4C75-B104-1761639F528E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
