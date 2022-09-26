@@ -1,6 +1,6 @@
 ﻿namespace MovieRating;
 
-public interface IRepository
+public interface IService
 {
     /// <summary>
     /// Gets the number of reviews by a single reviewer

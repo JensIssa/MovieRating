@@ -1,10 +1,20 @@
-﻿namespace MovieRating;
+﻿using MovieRating.Repository;
 
-public class Repository : IRepository
+namespace MovieRating;
+
+public class MovieService : IService
 {
+    private IBERepository _repository;
+
+    public MovieService(IBERepository repository)
+    {
+        _repository = repository;
+    }
     public int GetNumberOfReviewsFromReviewer(int reviewer)
     {
+        int reviewsPlaceholder = 0;
         
+
     }
 
     public double GetAverageRateFromReviewer(int reviewer)

@@ -2,35 +2,9 @@
 
 public class BEReview
 {
-    public int reviewer;
-    public int movie;
-    public int grade;
-    public DateTime reviewDate;
-    
-    public int Reviewer
-    {
-        get => reviewer;
-        set => reviewer = value;
-    }
-
-    public int Movie
-    {
-        get => movie;
-        set => movie = value;
-    }
-
-    public int Grade
-    {
-        get => grade;
-        set => grade = value;
-    }
-
-    public DateTime ReviewDate
-    {
-        get => reviewDate;
-        set => reviewDate = value;
-    }
-
-    
+    public int Reviewer { get; set; }
+    public int Movie { get; set; }
+    public int Grade { get; set; }
+    public DateTime ReviewDate { get; set;}
 
 }
