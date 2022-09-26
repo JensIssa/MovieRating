@@ -12,10 +12,15 @@ public class MovieService : IService
     }
     public int GetNumberOfReviewsFromReviewer(int reviewer)
     {
-        int reviewsPlaceholder = 0;
-        
-
-        //hello gamer
+        int reviews = 0;
+        foreach (var review  in _repository.getAllReviews())
+        {
+            if (review.Reviewer == reviewer)
+            {
+                reviews++;
+            }
+        }
+        return reviews;
     }
 
     public double GetAverageRateFromReviewer(int reviewer)
