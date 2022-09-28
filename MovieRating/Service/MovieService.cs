@@ -6,14 +6,20 @@ public class MovieService : IService
 {
     private IBERepository _repository;
 
+    private List<BEReview> _beReviews;
     public MovieService(IBERepository repository)
     {
         _repository = repository;
     }
+
+    public List<BEReview> addList(List<BEReview> review)
+    {
+        return _beReviews;
+    }
     public int GetNumberOfReviewsFromReviewer(int reviewer)
     {
         int reviews = 0;
-        foreach (var review  in _repository.getAllReviews())
+        foreach (var review  in _repository.getAllReviews(_beReviews))
         {
             if (review.Reviewer == reviewer)
             {
@@ -26,7 +32,7 @@ public class MovieService : IService
     public double GetAverageRateFromReviewer(int reviewer)
     {
         int rates = 0;
-        foreach (var review in _repository.getAllReviews())
+        foreach (var review in _repository.getAllReviews(_beReviews))
         {
             if (review.Reviewer == reviewer)
             {
@@ -40,7 +46,7 @@ public class MovieService : IService
     public int GetNumberOfRatesByReviewer(int reviewer, int rate)
     {
         int rates = 0;
-        foreach (var review in _repository.getAllReviews())
+        foreach (var review in _repository.getAllReviews(_beReviews))
         {
             review.Reviewer = reviewer;
             if (rates==review.Grade)
