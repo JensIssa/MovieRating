@@ -1655,7 +1655,7 @@
           "lib/netstandard2.0/xunit.abstractions.dll": {}
         }
       },
-      "xunit.analyzers/0.10.0": {
+      "xunit.analyzers/1.0.0": {
         "type": "package"
       },
       "xunit.assert/2.4.1": {
@@ -5991,18 +5991,20 @@
         "xunit.abstractions.nuspec"
       ]
     },
-    "xunit.analyzers/0.10.0": {
-      "sha512": "4/IDFCJfIeg6bix9apmUtIMwvOsiwqdEexeO/R2D4GReIGPLIRODTpId/l4LRSrAJk9lEO3Zx1H0Zx6uohJDNg==",
+    "xunit.analyzers/1.0.0": {
+      "sha512": "BeO8hEgs/c8Ls2647fPfieMngncvf0D0xYNDfIO59MolxtCtVjFRd6SRc+7tj8VMqkVOuJcnc9eh4ngI2cAmLQ==",
       "type": "package",
-      "path": "xunit.analyzers/0.10.0",
+      "path": "xunit.analyzers/1.0.0",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "_content/logo-128-transparent.png",
         "analyzers/dotnet/cs/xunit.analyzers.dll",
+        "analyzers/dotnet/cs/xunit.analyzers.fixes.dll",
         "tools/install.ps1",
         "tools/uninstall.ps1",
-        "xunit.analyzers.0.10.0.nupkg.sha512",
+        "xunit.analyzers.1.0.0.nupkg.sha512",
         "xunit.analyzers.nuspec"
       ]
     },
@@ -6111,23 +6113,24 @@
       "MovieRating >= 1.0.0",
       "coverlet.collector >= 3.1.2",
       "xunit >= 2.4.1",
+      "xunit.analyzers >= 1.0.0",
       "xunit.runner.visualstudio >= 2.4.3"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Bruger\\.nuget\\packages\\": {}
+    "C:\\Users\\beraw\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Bruger\\Documents\\GitHub\\MovieRating\\MovieTest\\MovieTest.csproj",
+      "projectUniqueName": "C:\\Users\\beraw\\OneDrive\\Dokumenter\\GitHub\\MovieRating\\MovieTest\\MovieTest.csproj",
       "projectName": "MovieTest",
-      "projectPath": "C:\\Users\\Bruger\\Documents\\GitHub\\MovieRating\\MovieTest\\MovieTest.csproj",
-      "packagesPath": "C:\\Users\\Bruger\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Bruger\\Documents\\GitHub\\MovieRating\\MovieTest\\obj\\",
+      "projectPath": "C:\\Users\\beraw\\OneDrive\\Dokumenter\\GitHub\\MovieRating\\MovieTest\\MovieTest.csproj",
+      "packagesPath": "C:\\Users\\beraw\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\beraw\\OneDrive\\Dokumenter\\GitHub\\MovieRating\\MovieTest\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Bruger\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\beraw\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -6139,8 +6142,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\Bruger\\Documents\\GitHub\\MovieRating\\MovieRating\\MovieRating.csproj": {
-              "projectPath": "C:\\Users\\Bruger\\Documents\\GitHub\\MovieRating\\MovieRating\\MovieRating.csproj"
+            "C:\\Users\\beraw\\OneDrive\\Dokumenter\\GitHub\\MovieRating\\MovieRating\\MovieRating.csproj": {
+              "projectPath": "C:\\Users\\beraw\\OneDrive\\Dokumenter\\GitHub\\MovieRating\\MovieRating\\MovieRating.csproj"
             }
           }
         }
@@ -6173,6 +6176,10 @@
             "target": "Package",
             "version": "[2.4.1, )"
           },
+          "xunit.analyzers": {
+            "target": "Package",
+            "version": "[1.0.0, )"
+          },
           "xunit.runner.visualstudio": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
             "suppressParent": "All",
@@ -6196,7 +6203,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }
