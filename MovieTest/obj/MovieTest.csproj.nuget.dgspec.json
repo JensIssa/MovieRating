@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\kille\\RiderProjects\\MovieRating\\MovieTest\\MovieTest.csproj": {}
+    "C:\\Users\\Bruger\\Documents\\GitHub\\MovieRating\\MovieTest\\MovieTest.csproj": {}
   },
   "projects": {
-    "C:\\Users\\kille\\RiderProjects\\MovieRating\\MovieRating\\MovieRating.csproj": {
+    "C:\\Users\\Bruger\\Documents\\GitHub\\MovieRating\\MovieRating\\MovieRating.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kille\\RiderProjects\\MovieRating\\MovieRating\\MovieRating.csproj",
+        "projectUniqueName": "C:\\Users\\Bruger\\Documents\\GitHub\\MovieRating\\MovieRating\\MovieRating.csproj",
         "projectName": "MovieRating",
-        "projectPath": "C:\\Users\\kille\\RiderProjects\\MovieRating\\MovieRating\\MovieRating.csproj",
-        "packagesPath": "C:\\Users\\kille\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kille\\RiderProjects\\MovieRating\\MovieRating\\obj\\",
+        "projectPath": "C:\\Users\\Bruger\\Documents\\GitHub\\MovieRating\\MovieRating\\MovieRating.csproj",
+        "packagesPath": "C:\\Users\\Bruger\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Bruger\\Documents\\GitHub\\MovieRating\\MovieRating\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\kille\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Bruger\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -53,21 +53,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\kille\\RiderProjects\\MovieRating\\MovieTest\\MovieTest.csproj": {
+    "C:\\Users\\Bruger\\Documents\\GitHub\\MovieRating\\MovieTest\\MovieTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kille\\RiderProjects\\MovieRating\\MovieTest\\MovieTest.csproj",
+        "projectUniqueName": "C:\\Users\\Bruger\\Documents\\GitHub\\MovieRating\\MovieTest\\MovieTest.csproj",
         "projectName": "MovieTest",
-        "projectPath": "C:\\Users\\kille\\RiderProjects\\MovieRating\\MovieTest\\MovieTest.csproj",
-        "packagesPath": "C:\\Users\\kille\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kille\\RiderProjects\\MovieRating\\MovieTest\\obj\\",
+        "projectPath": "C:\\Users\\Bruger\\Documents\\GitHub\\MovieRating\\MovieTest\\MovieTest.csproj",
+        "packagesPath": "C:\\Users\\Bruger\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Bruger\\Documents\\GitHub\\MovieRating\\MovieTest\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\kille\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Bruger\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -79,8 +79,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\kille\\RiderProjects\\MovieRating\\MovieRating\\MovieRating.csproj": {
-                "projectPath": "C:\\Users\\kille\\RiderProjects\\MovieRating\\MovieRating\\MovieRating.csproj"
+              "C:\\Users\\Bruger\\Documents\\GitHub\\MovieRating\\MovieRating\\MovieRating.csproj": {
+                "projectPath": "C:\\Users\\Bruger\\Documents\\GitHub\\MovieRating\\MovieRating\\MovieRating.csproj"
               }
             }
           }
@@ -140,7 +140,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

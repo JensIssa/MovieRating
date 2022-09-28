@@ -32,8 +32,8 @@ public class MovieService : IService
         {
             if (review.Reviewer == reviewer)
             {
-                rates++;
-            }
+                 rates += review.Grade;
+            } 
         }
         double average = rates / GetNumberOfReviewsFromReviewer(reviewer);
         return average;
