@@ -45,7 +45,7 @@ public class MovieService : IService
         foreach (var review in _repository.getAllReviews())
         {
             review.Reviewer = reviewer;
-            if (rates==review.Grade)
+            if (rate==review.Grade)
             {
                 rates++;
             }
@@ -56,12 +56,30 @@ public class MovieService : IService
 
     public int GetNumberOfReviews(int movie)
     {
-        throw new NotImplementedException();
+        int movieReviews = 0;
+        foreach (var review in _repository.getAllReviews())
+        {
+            if (review.Movie == movie)
+            {
+                movieReviews++;
+            }
+        }
+
+        return movieReviews;
     }
 
     public double GetAverageRateOfMovie(int movie)
     {
-        throw new NotImplementedException();
+        int rates = 0;
+        foreach (var review in _repository.getAllReviews())
+        {
+            if (review.Movie == movie)
+            {
+                rates += review.Grade;
+            } 
+        }
+        double average = rates / GetNumberOfReviews(movie);
+        return average;
     }
 
     public int GetNumberOfRates(int movie, int rate)

@@ -1,3 +1,4 @@
+using System.Runtime.InteropServices;
 using Moq;
 using MovieRating;
 using MovieRating.Repository;
@@ -85,7 +86,56 @@ public class UnitTest1
         
         //Assert
         Assert.Equal(expectedRate, result);
-        mockRepo.Verify(r => r.getAllReviews(), Times.Once);
+        //mockRepo.Verify(r => r.getAllReviews(), Times.Once);
+    }
+
+    [Theory]
+    [InlineData(1,2)]//true
+    [InlineData(2,2)]//true
+    [InlineData(2,3)]//false
+    public void GetNumberOfReviewsTest(int movieId, int expectedResult)
+    {
+        //Arrange
+        List<BEReview> fakeRepo = new List<BEReview>
+        {
+            new BEReview { Reviewer = 1, Movie = 1, Grade = 3, ReviewDate = DateTime.Now },
+            new BEReview { Reviewer = 1, Movie = 2, Grade = 5, ReviewDate = DateTime.Now },
+            new BEReview { Reviewer = 2, Movie = 1, Grade = 4, ReviewDate = DateTime.Now },
+            new BEReview { Reviewer = 2, Movie = 2, Grade = 4, ReviewDate = DateTime.Now }
+        };
+        Mock<IBERepository> mockRepo = new Mock<IBERepository>();
+        mockRepo.Setup(r => r.getAllReviews()).Returns(fakeRepo);
+
+        IService service = new MovieService(mockRepo.Object);
+        //Act
+        var result = service.GetNumberOfReviews(movieId);
+        //Assert
+        Assert.Equal(expectedResult, result);
+        
+    }
+
+    [Theory]
+    [InlineData(1,4)]//true
+    [InlineData(2,4)]//true
+    [InlineData(3,4)]//false
+    public void GetAverageRateOfMovieTest(int movieId, double expectedResult)
+    {
+        //Arrange
+        List<BEReview> fakeRepo = new List<BEReview>
+        {
+            new BEReview { Reviewer = 1, Movie = 1, Grade = 3, ReviewDate = DateTime.Now },
+            new BEReview { Reviewer = 1, Movie = 2, Grade = 4, ReviewDate = DateTime.Now },
+            new BEReview { Reviewer = 2, Movie = 1, Grade = 5, ReviewDate = DateTime.Now },
+            new BEReview { Reviewer = 2, Movie = 2, Grade = 4, ReviewDate = DateTime.Now }
+        };
+        Mock<IBERepository> mockRepo = new Mock<IBERepository>();
+        mockRepo.Setup(r => r.getAllReviews()).Returns(fakeRepo);
+
+        IService service = new MovieService(mockRepo.Object);
+        //Act
+        var result = service.GetAverageRateOfMovie(movieId);
+        //Assert
+        Assert.Equal(expectedResult, result);
     }
     
 }
