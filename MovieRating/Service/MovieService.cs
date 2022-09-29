@@ -84,7 +84,15 @@ public class MovieService : IService
 
     public int GetNumberOfRates(int movie, int rate)
     {
-        throw new NotImplementedException();
+        int rates = 0;
+        foreach (var review in _repository.getAllReviews())
+        {
+            if (review.Grade == rate && review.Movie == movie) 
+            {
+                rates++;
+            }
+        }
+        return rates;
     }
 
     public List<int> GetMoviesWithHighestNumberOfTopRates()

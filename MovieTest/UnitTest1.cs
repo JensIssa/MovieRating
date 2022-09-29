@@ -1,4 +1,5 @@
 using System.Runtime.InteropServices;
+using System.Security.Cryptography.X509Certificates;
 using Moq;
 using MovieRating;
 using MovieRating.Repository;
@@ -66,7 +67,7 @@ public class UnitTest1
     [InlineData(1, 3, 2)] //true
     [InlineData(2, 3, 1)] //false
     [InlineData(2, 4, 2)] //true
-    public void GetNumberOfRatesTest(int reviewerID, int rate, int expectedRate)
+    public void GetNumberOfRatesByReviewerTest(int reviewerID, int rate, int expectedRate)
     {
         //Arrange
         List<BEReview> fakeRepo = new List<BEReview>
@@ -136,6 +137,64 @@ public class UnitTest1
         var result = service.GetAverageRateOfMovie(movieId);
         //Assert
         Assert.Equal(expectedResult, result);
+    }
+
+    [Theory]
+    [InlineData(1, 4, 1)] //true
+    [InlineData(2, 4, 1)] //true
+    [InlineData(1, 2, 4)] //false
+    public void GetNumberOfRatesTest(int movieId, int rate, int expectedRate)
+    {
+        //Arrange
+        List<BEReview> fakeRepo = new List<BEReview>
+        {
+            new BEReview { Reviewer = 1, Movie = 1, Grade = 3, ReviewDate = DateTime.Now },
+            new BEReview { Reviewer = 1, Movie = 2, Grade = 5, ReviewDate = DateTime.Now },
+            new BEReview { Reviewer = 2, Movie = 1, Grade = 4, ReviewDate = DateTime.Now },
+            new BEReview { Reviewer = 2, Movie = 2, Grade = 4, ReviewDate = DateTime.Now }
+        };
+        Mock<IBERepository> mockRepo = new Mock<IBERepository>();
+        mockRepo.Setup(r => r.getAllReviews()).Returns(fakeRepo);
+
+        IService service = new MovieService(mockRepo.Object);
+        //Act
+        var result = service.GetNumberOfRates(movieId, rate);
+        //Assert
+        Assert.Equal(expectedRate, result);
+    }
+
+    
+    [Fact]
+
+    public void GetMoviesWithHighestNumberOfTopRatesTest()
+    {
+        //Arrange
+        int a = 0;
+        List<BEReview> fakeRepo = new List<BEReview>
+        {
+            new BEReview { Reviewer = 1, Movie = 1, Grade = 3, ReviewDate = DateTime.Now },
+            new BEReview { Reviewer = 1, Movie = 2, Grade = 5, ReviewDate = DateTime.Now },
+            new BEReview { Reviewer = 2, Movie = 1, Grade = 5, ReviewDate = DateTime.Now },
+            new BEReview { Reviewer = 2, Movie = 2, Grade = 5, ReviewDate = DateTime.Now },
+            new BEReview { Reviewer = 2, Movie = 3, Grade = 5, ReviewDate = DateTime.Now },
+            new BEReview { Reviewer = 1, Movie = 3, Grade = 4, ReviewDate = DateTime.Now }
+        };
+        Mock<IBERepository> mockRepo = new Mock<IBERepository>();
+        mockRepo.Setup(r => r.getAllReviews()).Returns(fakeRepo);
+
+        IService service = new MovieService(mockRepo.Object);
+        //Act
+        var result = service.GetMoviesWithHighestNumberOfTopRates();
+        
+        foreach (int i in result)
+        {
+            if (i.Equals(fakeRepo[i]))
+            {
+                a++;
+            }
+        }
+        //Assert
+        Assert.Equal(2, a);
     }
     
 }

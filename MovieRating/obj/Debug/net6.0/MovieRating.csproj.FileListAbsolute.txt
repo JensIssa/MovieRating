@@ -34,3 +34,15 @@ C:\Users\Bruger\Documents\GitHub\MovieRating\MovieRating\obj\Debug\net6.0\MovieR
 C:\Users\Bruger\Documents\GitHub\MovieRating\MovieRating\obj\Debug\net6.0\refint\MovieRating.dll
 C:\Users\Bruger\Documents\GitHub\MovieRating\MovieRating\obj\Debug\net6.0\MovieRating.pdb
 C:\Users\Bruger\Documents\GitHub\MovieRating\MovieRating\obj\Debug\net6.0\ref\MovieRating.dll
+C:\Users\Bruger\Dropbox\Min computer (DESKTOP-FJSKKJ8)\Downloads\CSharp\ProductRestApi2\MovieRating\MovieRating\bin\Debug\net6.0\MovieRating.deps.json
+C:\Users\Bruger\Dropbox\Min computer (DESKTOP-FJSKKJ8)\Downloads\CSharp\ProductRestApi2\MovieRating\MovieRating\bin\Debug\net6.0\MovieRating.dll
+C:\Users\Bruger\Dropbox\Min computer (DESKTOP-FJSKKJ8)\Downloads\CSharp\ProductRestApi2\MovieRating\MovieRating\bin\Debug\net6.0\MovieRating.pdb
+C:\Users\Bruger\Dropbox\Min computer (DESKTOP-FJSKKJ8)\Downloads\CSharp\ProductRestApi2\MovieRating\MovieRating\obj\Debug\net6.0\MovieRating.csproj.AssemblyReference.cache
+C:\Users\Bruger\Dropbox\Min computer (DESKTOP-FJSKKJ8)\Downloads\CSharp\ProductRestApi2\MovieRating\MovieRating\obj\Debug\net6.0\MovieRating.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Bruger\Dropbox\Min computer (DESKTOP-FJSKKJ8)\Downloads\CSharp\ProductRestApi2\MovieRating\MovieRating\obj\Debug\net6.0\MovieRating.AssemblyInfoInputs.cache
+C:\Users\Bruger\Dropbox\Min computer (DESKTOP-FJSKKJ8)\Downloads\CSharp\ProductRestApi2\MovieRating\MovieRating\obj\Debug\net6.0\MovieRating.AssemblyInfo.cs
+C:\Users\Bruger\Dropbox\Min computer (DESKTOP-FJSKKJ8)\Downloads\CSharp\ProductRestApi2\MovieRating\MovieRating\obj\Debug\net6.0\MovieRating.csproj.CoreCompileInputs.cache
+C:\Users\Bruger\Dropbox\Min computer (DESKTOP-FJSKKJ8)\Downloads\CSharp\ProductRestApi2\MovieRating\MovieRating\obj\Debug\net6.0\MovieRating.dll
+C:\Users\Bruger\Dropbox\Min computer (DESKTOP-FJSKKJ8)\Downloads\CSharp\ProductRestApi2\MovieRating\MovieRating\obj\Debug\net6.0\refint\MovieRating.dll
+C:\Users\Bruger\Dropbox\Min computer (DESKTOP-FJSKKJ8)\Downloads\CSharp\ProductRestApi2\MovieRating\MovieRating\obj\Debug\net6.0\MovieRating.pdb
+C:\Users\Bruger\Dropbox\Min computer (DESKTOP-FJSKKJ8)\Downloads\CSharp\ProductRestApi2\MovieRating\MovieRating\obj\Debug\net6.0\ref\MovieRating.dll
