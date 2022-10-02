@@ -11,17 +11,18 @@ public class MovieService : IService
         _repository = repository;
     }
 
-   
+
     public int GetNumberOfReviewsFromReviewer(int reviewer)
     {
         int reviews = 0;
-        foreach (var review  in _repository.getAllReviews())
+        foreach (var review in _repository.getAllReviews())
         {
             if (review.Reviewer == reviewer)
             {
                 reviews++;
             }
         }
+
         return reviews;
     }
 
@@ -32,9 +33,10 @@ public class MovieService : IService
         {
             if (review.Reviewer == reviewer)
             {
-                 rates += review.Grade;
-            } 
+                rates += review.Grade;
+            }
         }
+
         double average = rates / GetNumberOfReviewsFromReviewer(reviewer);
         return average;
     }
@@ -45,7 +47,7 @@ public class MovieService : IService
         foreach (var review in _repository.getAllReviews())
         {
             review.Reviewer = reviewer;
-            if (rate==review.Grade)
+            if (rate == review.Grade)
             {
                 rates++;
             }
@@ -76,8 +78,9 @@ public class MovieService : IService
             if (review.Movie == movie)
             {
                 rates += review.Grade;
-            } 
+            }
         }
+
         double average = rates / GetNumberOfReviews(movie);
         return average;
     }
@@ -87,17 +90,39 @@ public class MovieService : IService
         int rates = 0;
         foreach (var review in _repository.getAllReviews())
         {
-            if (review.Grade == rate && review.Movie == movie) 
+            if (review.Grade == rate && review.Movie == movie)
             {
                 rates++;
             }
         }
+
         return rates;
     }
 
     public List<int> GetMoviesWithHighestNumberOfTopRates()
     {
-        throw new NotImplementedException();
+        List<int> moviesWithFive = new List<int>();
+        foreach (var review in _repository.getAllReviews())
+        {
+            if (review.Grade == 5)
+            {
+                moviesWithFive.Add(review.Movie);
+            }
+        }
+
+        var input = moviesWithFive.GroupBy(i => i).ToList();
+        int max = input.Max(c => c.Count());
+        var mostTimes = input.Where(d => d.Count() == max).
+            Select(c => c.Key).ToList();
+
+        bool isEmpty = !mostTimes.Any(); 
+        
+        if (isEmpty)
+        {
+            throw new InvalidOperationException("No movies has a rating of 5");
+        }
+        
+        return mostTimes;
     }
 
     public List<int> GetMostProductiveReviewers()
