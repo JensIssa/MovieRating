@@ -127,12 +127,36 @@ public class MovieService : IService
 
     public List<int> GetMostProductiveReviewers()
     {
-        throw new NotImplementedException();
+        List<int> reviewers = new List<int>();
+        foreach (var review in _repository.getAllReviews())
+        {
+            reviewers.Add(review.Reviewer);
+        }
+        var input = reviewers.GroupBy(i => i).ToList();
+        int max = input.Max(c => c.Count());
+        var productiveReviwers = input.Where(d => d.Count() == max).
+            Select(c => c.Key).ToList();
+        
+        return productiveReviwers;
+
     }
 
     public List<int> GetTopRatedMovies(int amount)
     {
-        throw new NotImplementedException();
+        List<int> movies = new List<int>();
+        foreach (var review in _repository.getAllReviews())
+        {
+            if (amount <= review.Grade)
+            {
+                movies.Add(review.Movie);
+            }
+        }
+        var input = movies.GroupBy(i => i).ToList();
+        int max = input.Max(c => c.Count());
+        var topRatedMovies = input.Where(d => d.Count() == max).
+            Select(c => c.Key).ToList();
+        
+        return topRatedMovies;
     }
 
     public List<int> GetTopMoviesByReviewer(int reviewer)
