@@ -109,20 +109,19 @@ public class MovieService : IService
                 moviesWithFive.Add(review.Movie);
             }
         }
-
-        var input = moviesWithFive.GroupBy(i => i).ToList();
-        int max = input.Max(c => c.Count());
-        var mostTimes = input.Where(d => d.Count() == max).
-            Select(c => c.Key).ToList();
-
-        bool isEmpty = !mostTimes.Any(); 
-        
-        if (isEmpty)
+        if (moviesWithFive.Count == 0)
         {
-            throw new InvalidOperationException("No movies has a rating of 5");
+
+            throw new ArgumentException("No movies has a rating of 5");
+
         }
-        
-        return mostTimes;
+        else
+        {
+            var input = moviesWithFive.GroupBy(i => i).ToList();
+            int max = input.Max(c => c.Count());
+            return input.Where(d => d.Count() == max).
+                Select(c => c.Key).ToList();
+        }
     }
 
     public List<int> GetMostProductiveReviewers()

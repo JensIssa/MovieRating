@@ -233,7 +233,7 @@ public class UnitTest1
         IService service = new MovieService(mockRepo.Object);
         
         //Act
-        var ex = Assert.Throws<InvalidOperationException>(() => service.GetMoviesWithHighestNumberOfTopRates());
+        var ex = Assert.Throws<ArgumentException>(() => service.GetMoviesWithHighestNumberOfTopRates());
 
         //Assert
         Assert.Equal("No movies has a rating of 5", ex.Message);
