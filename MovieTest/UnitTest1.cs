@@ -223,6 +223,9 @@ public class UnitTest1
     }
     
     [Fact]
+    /*
+     * Checks for exception
+     */
     public void GetMoviesWithHighestNumberOfTopRatesTest3()
     {
         //Arrange
@@ -295,6 +298,23 @@ public class UnitTest1
         //Assert
         Assert.Equal(expectedResult, result);
     }
+    [Fact]
+    public void GetMostProductiveReviewersTest3()
+    {
+        //Arrange
+
+        List<BEReview> fakeRepo = new List<BEReview>{};
+        Mock<IBERepository> mockRepo = new Mock<IBERepository>();
+        mockRepo.Setup(r => r.getAllReviews()).Returns(fakeRepo);
+        IService service = new MovieService(mockRepo.Object);
+        
+        //Act
+        var ex = Assert.Throws<ArgumentException>(() => service.GetMostProductiveReviewers());
+
+        //Assert
+        Assert.Equal("There is no reviewer(s)", ex.Message);
+    }
+
 
    [Fact]
    public void GetTopRatedMoviesTest1()
@@ -302,8 +322,8 @@ public class UnitTest1
         //Arrange
         List<BEReview> fakeRepo = new List<BEReview>
         {
-            new BEReview { Reviewer = 1, Movie = 1, Grade = 3, ReviewDate = DateTime.Now },
-            new BEReview { Reviewer = 1, Movie = 2, Grade = 5, ReviewDate = DateTime.Now },
+            new BEReview { Reviewer = 1, Movie = 1, Grade = 4, ReviewDate = DateTime.Now },
+            new BEReview { Reviewer = 1, Movie = 2, Grade = 4, ReviewDate = DateTime.Now },
             new BEReview { Reviewer = 2, Movie = 1, Grade = 5, ReviewDate = DateTime.Now },
             new BEReview { Reviewer = 2, Movie = 2, Grade = 5, ReviewDate = DateTime.Now },
         };
@@ -318,4 +338,69 @@ public class UnitTest1
         //Assert
         Assert.Equal(expectedResult, result);
     }
+/*
+ * Checks for exception
+ */
+   [Fact]
+   public void GetTopRatedMoviesTest2()
+   {
+       //Arrange
+
+       List<BEReview> fakeRepo = new List<BEReview>{};
+       Mock<IBERepository> mockRepo = new Mock<IBERepository>();
+       mockRepo.Setup(r => r.getAllReviews()).Returns(fakeRepo);
+       IService service = new MovieService(mockRepo.Object);
+        
+       //Act
+       var ex = Assert.Throws<ArgumentException>(() => service.GetTopRatedMovies(4));
+
+       //Assert
+       Assert.Equal("There is no top rated movies", ex.Message);
+   }
+    [Fact]
+   public void GetTopMoviesByReviewerTest1()
+   {
+       //Arrange
+       List<BEReview> fakeRepo = new List<BEReview>
+       {
+           new BEReview { Reviewer = 1, Movie = 1, Grade = 5, ReviewDate = new DateTime(2020, 12, 25) },
+           new BEReview { Reviewer = 1, Movie = 2, Grade = 3, ReviewDate = new DateTime(2018, 7, 19) },
+           new BEReview { Reviewer = 2, Movie = 1, Grade = 5, ReviewDate = DateTime.Now },
+           new BEReview { Reviewer = 2, Movie = 2, Grade = 5, ReviewDate = DateTime.Now },
+           new BEReview { Reviewer = 2, Movie = 3, Grade = 5, ReviewDate = DateTime.Now },
+           new BEReview { Reviewer = 1, Movie = 4, Grade = 5, ReviewDate = new DateTime(2015, 6, 5) },
+           new BEReview { Reviewer = 2, Movie = 4, Grade = 5, ReviewDate = DateTime.Now },
+           new BEReview { Reviewer = 3, Movie = 4, Grade = 4, ReviewDate = DateTime.Now },
+           new BEReview { Reviewer = 4, Movie = 4, Grade = 4, ReviewDate = DateTime.Now }
+       };
+       Mock<IBERepository> mockRepo = new Mock<IBERepository>();
+       mockRepo.Setup(r => r.getAllReviews()).Returns(fakeRepo);
+       IService service = new MovieService(mockRepo.Object);
+       //Act
+       var result = service.GetTopMoviesByReviewer(1);
+       List<int> expectedResult = new List<int>();
+       expectedResult.Add(1);
+       expectedResult.Add(2);
+       expectedResult.Add(4);
+       //Assert
+       Assert.Equal(expectedResult, result);
+
+   }
+
+   [Fact]
+   public void GetTopMoviesByReviewerTest2()
+   {
+       //Arrange
+
+       List<BEReview> fakeRepo = new List<BEReview>{};
+       Mock<IBERepository> mockRepo = new Mock<IBERepository>();
+       mockRepo.Setup(r => r.getAllReviews()).Returns(fakeRepo);
+       IService service = new MovieService(mockRepo.Object);
+        
+       //Act
+       var ex = Assert.Throws<ArgumentException>(() => service.GetTopMoviesByReviewer(4));
+
+       //Assert
+       Assert.Equal("There is no top rated movies made by the reviewer", ex.Message);
+   }
 }
