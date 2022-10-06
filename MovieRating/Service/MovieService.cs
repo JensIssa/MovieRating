@@ -53,7 +53,7 @@ public class MovieService : IService
         int rates = 0;
         if (reviewer < 1)
         {
-            throw new ArgumentException("Id must be positive");
+            throw new ArgumentException("Id must be a positive number");
         }
         if (rate < 1 || rate > 5)
         {
@@ -76,7 +76,7 @@ public class MovieService : IService
         int movieReviews = 0;
         if (movie < 1)
         {
-            throw new ArgumentException("Id must be positive");
+            throw new ArgumentException("Id must be a positive number");
         }
         foreach (var review in _repository.getAllReviews())
         {
@@ -94,7 +94,7 @@ public class MovieService : IService
         int rates = 0;
         if (movie < 1)
         {
-            throw new ArgumentException("Id must be positive");
+            throw new ArgumentException("Id must be a positive number");
         }
         foreach (var review in _repository.getAllReviews())
         {
@@ -113,7 +113,7 @@ public class MovieService : IService
         int rates = 0;
         if (movie < 1)
         {
-            throw new ArgumentException("Id must be positive");
+            throw new ArgumentException("Id must be a positive number");
         }
         if (rate < 1 || rate > 5)
         {
@@ -165,7 +165,6 @@ public class MovieService : IService
         {
 
             throw new ArgumentException("There is no reviewer(s)");
-
         }
         else
         {
@@ -195,9 +194,7 @@ public class MovieService : IService
         }
         if (movies.Count == 0)
         {
-
             throw new ArgumentException("There is no top rated movies");
-
         }
         else
         {
@@ -220,14 +217,10 @@ public class MovieService : IService
             {
                 movies.Add(review.Movie);
             }
-            
         }
-
         if (movies.Count == 0)
         {
-
             throw new ArgumentException("There is no top rated movies made by the reviewer");
-
         }
         else 
         {
