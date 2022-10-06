@@ -36,7 +36,7 @@ public class UnitTest1
 
         //Assert
         Assert.Equal(expectedResult, result);
-        mockRepo.Verify(r => r.getAllReviews(), Times.Once);
+       
     }
 
     /// <summary>
@@ -49,10 +49,13 @@ public class UnitTest1
     [InlineData(0, "Id must be a positive number")]
     public void GetNumberOfReviewsFromReviewerInvalidTest(int reviewerId, string expectedException)
     {
+        //Arrange
         Mock<IBERepository> mockRepo = new Mock<IBERepository>();
         IService service = new MovieService(mockRepo.Object);
         Action action = () => service.GetNumberOfReviewsFromReviewer(reviewerId);
+        //Act
         var ex = Assert.Throws<ArgumentException>(action);
+        //Assert
         Assert.Equal(expectedException, ex.Message);
     }
 
@@ -94,10 +97,13 @@ public class UnitTest1
     [InlineData(0, "Id must be a positive number")]
     public void GetAverageRateFromReviewerInvalidTest(int reviewerId, string expectedException)
     {
+        //Arrange
         Mock<IBERepository> mockRepo = new Mock<IBERepository>();
         IService service = new MovieService(mockRepo.Object);
         Action action = () => service.GetAverageRateFromReviewer(reviewerId);
+        //Act
         var ex = Assert.Throws<ArgumentException>(action);
+        //Assert
         Assert.Equal(expectedException, ex.Message);
     }
 
@@ -127,7 +133,7 @@ public class UnitTest1
         var result = service.GetNumberOfRatesByReviewer(reviewerID, rate);
         //Assert
         Assert.Equal(expectedRate, result);
-        //mockRepo.Verify(r => r.getAllReviews(), Times.Once);
+        
     }
 
     /// <summary>
@@ -145,10 +151,13 @@ public class UnitTest1
     [InlineData(2, 0, "Grade must be a number between 1 and 5")]
     public void GetNumberofRatesByReviewerInvalidTest(int reviewerid, int rate, string expectedException)
     {
+        //Arrange
         Mock<IBERepository> mockRepo = new Mock<IBERepository>();
         IService service = new MovieService(mockRepo.Object);
         Action action = () => service.GetNumberOfRatesByReviewer(reviewerid, rate);
+        //Act
         var ex = Assert.Throws<ArgumentException>(action);
+        //Assert
         Assert.Equal(expectedException, ex.Message);
     }
 
@@ -190,10 +199,13 @@ public class UnitTest1
     [InlineData(0, "Id must be a positive number")]
     public void GetNumberofReviewsInvalidTest(int movieId, string expectedException)
     {
+        //Arrange
         Mock<IBERepository> mockRepo = new Mock<IBERepository>();
         IService service = new MovieService(mockRepo.Object);
         Action action = () => service.GetNumberOfReviews(movieId);
+        //Act
         var ex = Assert.Throws<ArgumentException>(action);
+        //Assert
         Assert.Equal(expectedException, ex.Message);
     }
 
@@ -235,10 +247,13 @@ public class UnitTest1
     [InlineData(0, "Id must be a positive number")]
     public void GetAverageRateOfMovieInvalidTest(int movieId, string expectedException)
     {
+        //Arrange
         Mock<IBERepository> mockRepo = new Mock<IBERepository>();
         IService service = new MovieService(mockRepo.Object);
         Action action = () => service.GetAverageRateOfMovie(movieId);
+        //Act
         var ex = Assert.Throws<ArgumentException>(action);
+        //Assert
         Assert.Equal(expectedException, ex.Message);
     }
 
@@ -286,10 +301,13 @@ public class UnitTest1
     [InlineData(2, 0, "Grade must be a number between 1 and 5")]
     public void GetNumberOfRatesInvalidTest(int movieId, int rate, string expectedException)
     {
+        //Arrange
         Mock<IBERepository> mockRepo = new Mock<IBERepository>();
         IService service = new MovieService(mockRepo.Object);
         Action action = () => service.GetNumberOfRates(movieId, rate);
+        //Act
         var ex = Assert.Throws<ArgumentException>(action);
+        //Assert
         Assert.Equal(expectedException, ex.Message);
     }
 
