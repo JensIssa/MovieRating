@@ -161,13 +161,21 @@ public class MovieService : IService
         {
             reviewers.Add(review.Reviewer);
         }
-        var input = reviewers.GroupBy(i => i).ToList();
-        int max = input.Max(c => c.Count());
-        var productiveReviwers = input.Where(d => d.Count() == max).
-            Select(c => c.Key).ToList();
-        
-        return productiveReviwers;
+        if (reviewers.Count == 0)
+        {
 
+            throw new ArgumentException("There is no reviewer(s)");
+
+        }
+        else
+        {
+            var input = reviewers.GroupBy(i => i).ToList();
+            int max = input.Max(c => c.Count());
+            var productiveReviwers = input.Where(d => d.Count() == max).
+                Select(c => c.Key).ToList();
+        
+            return productiveReviwers;
+        }
     }
 
     public List<int> GetTopRatedMovies(int amount)
@@ -179,18 +187,53 @@ public class MovieService : IService
             {
                 movies.Add(review.Movie);
             }
+
+            foreach (var movie in movies)
+            {
+                GetAverageRateOfMovie(movie);
+            }
         }
-        var input = movies.GroupBy(i => i).ToList();
-        int max = input.Max(c => c.Count());
-        var topRatedMovies = input.Where(d => d.Count() == max).
-            Select(c => c.Key).ToList();
+        if (movies.Count == 0)
+        {
+
+            throw new ArgumentException("There is no top rated movies");
+
+        }
+        else
+        {
+            var input = movies.GroupBy(i => i).ToList();
+            int max = input.Max(c => c.Count());
+            var topRatedMovies = input.Where(d => d.Count() == max).
+                Select(c => c.Key).ToList();
         
-        return topRatedMovies;
+            return topRatedMovies;
+        }
     }
 
     public List<int> GetTopMoviesByReviewer(int reviewer)
     {
-        throw new NotImplementedException();
+        List<int> movies = new List<int>();
+        foreach (var review in _repository.getAllReviews())
+        {
+            _repository.getAllReviews().OrderBy(e => e.ReviewDate);
+            if (reviewer == review.Reviewer)
+            {
+                movies.Add(review.Movie);
+            }
+            
+        }
+
+        if (movies.Count == 0)
+        {
+
+            throw new ArgumentException("There is no top rated movies made by the reviewer");
+
+        }
+        else 
+        {
+            var sortedList = movies.OrderBy(i => i);
+            return sortedList.Reverse().ToList();
+        }
     }
 
     public List<int> GetReviewersByMovie(int movie)
