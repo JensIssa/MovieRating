@@ -15,20 +15,28 @@ public class MovieService : IService
     public int GetNumberOfReviewsFromReviewer(int reviewer)
     {
         int reviews = 0;
-        foreach (var review in _repository.getAllReviews())
+        if (reviewer < 1 )
         {
-            if (review.Reviewer == reviewer)
-            {
-                reviews++;
-            }
+            throw new ArgumentException("Id must be a positive number");
         }
-
+        foreach (var review in _repository.getAllReviews())
+            {
+                if (review.Reviewer == reviewer)
+                {
+                    reviews++;
+                }
+            }
         return reviews;
     }
 
     public double GetAverageRateFromReviewer(int reviewer)
     {
         int rates = 0;
+
+        if (reviewer < 1 )
+        {
+           throw new ArgumentException("Id must be a positive number");
+        }
         foreach (var review in _repository.getAllReviews())
         {
             if (review.Reviewer == reviewer)
@@ -36,7 +44,6 @@ public class MovieService : IService
                 rates += review.Grade;
             }
         }
-
         double average = rates / GetNumberOfReviewsFromReviewer(reviewer);
         return average;
     }
@@ -44,6 +51,14 @@ public class MovieService : IService
     public int GetNumberOfRatesByReviewer(int reviewer, int rate)
     {
         int rates = 0;
+        if (reviewer < 1)
+        {
+            throw new ArgumentException("Id must be positive");
+        }
+        if (rate < 1 || rate > 5)
+        {
+            throw new ArgumentException("Grade must be a number between 1 and 5");
+        }
         foreach (var review in _repository.getAllReviews())
         {
             review.Reviewer = reviewer;
@@ -59,6 +74,10 @@ public class MovieService : IService
     public int GetNumberOfReviews(int movie)
     {
         int movieReviews = 0;
+        if (movie < 1)
+        {
+            throw new ArgumentException("Id must be positive");
+        }
         foreach (var review in _repository.getAllReviews())
         {
             if (review.Movie == movie)
@@ -73,6 +92,10 @@ public class MovieService : IService
     public double GetAverageRateOfMovie(int movie)
     {
         int rates = 0;
+        if (movie < 1)
+        {
+            throw new ArgumentException("Id must be positive");
+        }
         foreach (var review in _repository.getAllReviews())
         {
             if (review.Movie == movie)
@@ -88,6 +111,15 @@ public class MovieService : IService
     public int GetNumberOfRates(int movie, int rate)
     {
         int rates = 0;
+        if (movie < 1)
+        {
+            throw new ArgumentException("Id must be positive");
+        }
+        if (rate < 1 || rate > 5)
+        {
+            throw new ArgumentException("Grade must be a number between 1 and 5");
+        }
+        
         foreach (var review in _repository.getAllReviews())
         {
             if (review.Grade == rate && review.Movie == movie)
@@ -111,9 +143,7 @@ public class MovieService : IService
         }
         if (moviesWithFive.Count == 0)
         {
-
             throw new ArgumentException("No movies has a rating of 5");
-
         }
         else
         {
