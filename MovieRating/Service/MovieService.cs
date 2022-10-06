@@ -209,28 +209,23 @@ public class MovieService : IService
 
     public List<int> GetTopMoviesByReviewer(int reviewer)
     {
-        List<int> movies = new List<int>();
-        foreach (var review in _repository.getAllReviews())
-        {
-            _repository.getAllReviews().OrderBy(e => e.ReviewDate);
-            if (reviewer == review.Reviewer)
-            {
-                movies.Add(review.Movie);
-            }
-        }
-        if (movies.Count == 0)
+        var topMovies = _repository.getAllReviews().Where(r => r.Reviewer == reviewer).OrderByDescending(r => r.Grade)
+            .ThenByDescending(r => r.ReviewDate).Select(r => r.Movie).ToList();
+        if (topMovies.Count ==0)
         {
             throw new ArgumentException("There is no top rated movies made by the reviewer");
         }
-        else 
-        {
-            var sortedList = movies.OrderBy(i => i);
-            return sortedList.Reverse().ToList();
-        }
+        return topMovies;
     }
 
     public List<int> GetReviewersByMovie(int movie)
     {
-        throw new NotImplementedException();
+        var reviewerMovies = _repository.getAllReviews().Where(r => r.Movie == movie).OrderByDescending(r => r.Grade)
+            .ThenByDescending(r => r.ReviewDate).Select(r => r.Reviewer).ToList();
+        if (reviewerMovies.Count ==0)
+        {
+            throw new ArgumentException("No one has reviewed this movie");
+        }
+        return reviewerMovies;
     }
 }

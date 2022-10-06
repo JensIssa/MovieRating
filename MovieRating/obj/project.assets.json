@@ -8,19 +8,19 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\kille\\.nuget\\packages\\": {}
+    "C:\\Users\\beraw\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kille\\Documents\\GitHub\\MovieRating\\MovieRating\\MovieRating.csproj",
+      "projectUniqueName": "C:\\Users\\beraw\\OneDrive\\Dokumenter\\GitHub\\MovieRating\\MovieRating\\MovieRating.csproj",
       "projectName": "MovieRating",
-      "projectPath": "C:\\Users\\kille\\Documents\\GitHub\\MovieRating\\MovieRating\\MovieRating.csproj",
-      "packagesPath": "C:\\Users\\kille\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kille\\Documents\\GitHub\\MovieRating\\MovieRating\\obj\\",
+      "projectPath": "C:\\Users\\beraw\\OneDrive\\Dokumenter\\GitHub\\MovieRating\\MovieRating\\MovieRating.csproj",
+      "packagesPath": "C:\\Users\\beraw\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\beraw\\OneDrive\\Dokumenter\\GitHub\\MovieRating\\MovieRating\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\kille\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\beraw\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"

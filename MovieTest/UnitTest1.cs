@@ -8,7 +8,6 @@ namespace MovieTest;
 
 public class UnitTest1
 {
-  
     /// <summary>
     /// Tests whether we can extract valid values from the mock object list, and see how many reviews an reviewer has given
     /// </summary>
@@ -16,7 +15,7 @@ public class UnitTest1
     /// <param name="expectedResult">the expected result, which is the number of reviews the specific id has given</param>
     [Theory]
     [InlineData(1, 2)]
-    [InlineData(2, 1)]    
+    [InlineData(2, 1)]
     [InlineData(3, 0)]
     public void GetNumberOfReviewsFromReviewerValidTest(int reviewerId, int expectedResult)
     {
@@ -31,12 +30,12 @@ public class UnitTest1
         mockRepo.Setup(r => r.getAllReviews()).Returns(fakeRepo);
 
         IService service = new MovieService(mockRepo.Object);
-        
+
         //Act
         var result = service.GetNumberOfReviewsFromReviewer(reviewerId);
-        
+
         //Assert
-        Assert.Equal(expectedResult,result);
+        Assert.Equal(expectedResult, result);
         mockRepo.Verify(r => r.getAllReviews(), Times.Once);
     }
 
@@ -64,8 +63,8 @@ public class UnitTest1
     /// <param name="reviewerId">reviewer Id given</param>
     /// <param name="expectedResult">the expected average rate</param>
     [Theory]
-    [InlineData(1,4)]//true
-    [InlineData(2,4)]//true
+    [InlineData(1, 4)] //true
+    [InlineData(2, 4)] //true
     public void GetAverageRateFromReviewerValidTest(int reviewerId, double expectedResult)
     {
         //Arrange
@@ -84,7 +83,7 @@ public class UnitTest1
         //Assert
         Assert.Equal(expectedResult, result);
     }
-    
+
     /// <summary>
     ///  Tests whether our expception works whenever we insert an invalid value
     /// </summary>
@@ -101,7 +100,7 @@ public class UnitTest1
         var ex = Assert.Throws<ArgumentException>(action);
         Assert.Equal(expectedException, ex.Message);
     }
-    
+
     /// <summary>
     /// Tests whether we can extract the number of a specific rate given by an individual reviewer
     /// </summary>
@@ -152,15 +151,15 @@ public class UnitTest1
         var ex = Assert.Throws<ArgumentException>(action);
         Assert.Equal(expectedException, ex.Message);
     }
-    
+
     /// <summary>
     /// Tests whether we extract the correct number of reviews given to a specific movie
     /// </summary>
     /// <param name="movieId">the movieId in question</param>
     /// <param name="expectedResult">the number of reviews given</param>
     [Theory]
-    [InlineData(1,2)]//true
-    [InlineData(2,2)]//true
+    [InlineData(1, 2)] //true
+    [InlineData(2, 2)] //true
     public void GetNumberOfReviewsTest(int movieId, int expectedResult)
     {
         //Arrange
@@ -204,8 +203,8 @@ public class UnitTest1
     /// <param name="movieId">the specific movie id being checked</param>
     /// <param name="expectedResult">the average rate of the specific movie</param>
     [Theory]
-    [InlineData(1,4)]//true
-    [InlineData(2,4)]//true
+    [InlineData(1, 4)] //true
+    [InlineData(2, 4)] //true
     public void GetAverageRateOfMovieValidTest(int movieId, double expectedResult)
     {
         //Arrange
@@ -301,7 +300,7 @@ public class UnitTest1
     public void GetMoviesWithHighestNumberOfTopRatesTestValidInput()
     {
         //Arrange
-       
+
         List<BEReview> fakeRepo = new List<BEReview>
         {
             new BEReview { Reviewer = 1, Movie = 1, Grade = 3, ReviewDate = DateTime.Now },
@@ -313,21 +312,21 @@ public class UnitTest1
         Mock<IBERepository> mockRepo = new Mock<IBERepository>();
         mockRepo.Setup(r => r.getAllReviews()).Returns(fakeRepo);
         IService service = new MovieService(mockRepo.Object);
-        
+
         //Act
         var result = service.GetMoviesWithHighestNumberOfTopRates();
         List<int> expectedResult = new List<int>();
         expectedResult.Add(2);
-        
+
         //Assert
         Assert.Equal(expectedResult, result);
     }
-    
+
     [Fact]
     public void GetMoviesWithHighestNumberOfTopRatesValidInputTwoOrMoreMaxTest()
     {
         //Arrange
-       
+
         List<BEReview> fakeRepo = new List<BEReview>
         {
             new BEReview { Reviewer = 1, Movie = 1, Grade = 3, ReviewDate = DateTime.Now },
@@ -348,11 +347,11 @@ public class UnitTest1
         List<int> expectedResult = new List<int>();
         expectedResult.Add(2);
         expectedResult.Add(4);
-        
+
         //Assert
         Assert.Equal(expectedResult, result);
     }
-    
+
     [Fact]
     /*
      * Checks for exception
@@ -361,17 +360,17 @@ public class UnitTest1
     {
         //Arrange
 
-        List<BEReview> fakeRepo = new List<BEReview>{new BEReview { Reviewer = 4, Movie = 4, Grade = 4, ReviewDate = DateTime.Now }};
+        List<BEReview> fakeRepo = new List<BEReview>
+            { new BEReview { Reviewer = 4, Movie = 4, Grade = 4, ReviewDate = DateTime.Now } };
         Mock<IBERepository> mockRepo = new Mock<IBERepository>();
         mockRepo.Setup(r => r.getAllReviews()).Returns(fakeRepo);
         IService service = new MovieService(mockRepo.Object);
-        
+
         //Act
         var ex = Assert.Throws<ArgumentException>(() => service.GetMoviesWithHighestNumberOfTopRates());
 
         //Assert
         Assert.Equal("No movies has a rating of 5", ex.Message);
-        
     }
 
     [Fact]
@@ -399,9 +398,8 @@ public class UnitTest1
         expectedResult.Add(2);
         //Assert
         Assert.Equal(expectedResult, result);
-
     }
-    
+
     [Fact]
     public void GetMostProductiveReviewersTwoOrMoreValidInputTest()
     {
@@ -429,16 +427,17 @@ public class UnitTest1
         //Assert
         Assert.Equal(expectedResult, result);
     }
+
     [Fact]
     public void GetMostProductiveReviewersInvalidInputTest()
     {
         //Arrange
 
-        List<BEReview> fakeRepo = new List<BEReview>{};
+        List<BEReview> fakeRepo = new List<BEReview> { };
         Mock<IBERepository> mockRepo = new Mock<IBERepository>();
         mockRepo.Setup(r => r.getAllReviews()).Returns(fakeRepo);
         IService service = new MovieService(mockRepo.Object);
-        
+
         //Act
         var ex = Assert.Throws<ArgumentException>(() => service.GetMostProductiveReviewers());
 
@@ -447,8 +446,8 @@ public class UnitTest1
     }
 
 
-   [Fact]
-   public void GetTopRatedMoviesTestValidInputTest()
+    [Fact]
+    public void GetTopRatedMoviesValidInputTest()
     {
         //Arrange
         List<BEReview> fakeRepo = new List<BEReview>
@@ -469,69 +468,115 @@ public class UnitTest1
         //Assert
         Assert.Equal(expectedResult, result);
     }
+
 /*
  * Checks for exception
  */
-   [Fact]
-   public void GetTopRatedMoviesInvalidInputTest()
-   {
-       //Arrange
-
-       List<BEReview> fakeRepo = new List<BEReview>{};
-       Mock<IBERepository> mockRepo = new Mock<IBERepository>();
-       mockRepo.Setup(r => r.getAllReviews()).Returns(fakeRepo);
-       IService service = new MovieService(mockRepo.Object);
-        
-       //Act
-       var ex = Assert.Throws<ArgumentException>(() => service.GetTopRatedMovies(4));
-
-       //Assert
-       Assert.Equal("There is no top rated movies", ex.Message);
-   }
-   
     [Fact]
-   public void GetTopMoviesByReviewerValidInputTest()
-   {
-       //Arrange
-       List<BEReview> fakeRepo = new List<BEReview>
-       {
-           new BEReview { Reviewer = 1, Movie = 1, Grade = 5, ReviewDate = new DateTime(2020, 12, 25) },
-           new BEReview { Reviewer = 1, Movie = 2, Grade = 3, ReviewDate = new DateTime(2018, 7, 19) },
-           new BEReview { Reviewer = 2, Movie = 1, Grade = 5, ReviewDate = DateTime.Now },
-           new BEReview { Reviewer = 2, Movie = 2, Grade = 5, ReviewDate = DateTime.Now },
-           new BEReview { Reviewer = 2, Movie = 3, Grade = 5, ReviewDate = DateTime.Now },
-           new BEReview { Reviewer = 1, Movie = 4, Grade = 5, ReviewDate = new DateTime(2015, 6, 5) },
-           new BEReview { Reviewer = 2, Movie = 4, Grade = 5, ReviewDate = DateTime.Now },
-           new BEReview { Reviewer = 3, Movie = 4, Grade = 4, ReviewDate = DateTime.Now },
-           new BEReview { Reviewer = 4, Movie = 4, Grade = 4, ReviewDate = DateTime.Now }
-       };
-       Mock<IBERepository> mockRepo = new Mock<IBERepository>();
-       mockRepo.Setup(r => r.getAllReviews()).Returns(fakeRepo);
-       IService service = new MovieService(mockRepo.Object);
-       //Act
-       var result = service.GetTopMoviesByReviewer(1);
-       List<int> expectedResult = new List<int>();
-       expectedResult.Add(1);
-       expectedResult.Add(2);
-       expectedResult.Add(4);
-       //Assert
-       Assert.Equal(expectedResult, result);
-   }
+    public void GetTopRatedMoviesInvalidInputTest()
+    {
+        //Arrange
 
-   [Fact]
-   public void GetTopMoviesByReviewerInvalidInputTest()
-   {
-       //Arrange
+        List<BEReview> fakeRepo = new List<BEReview> { };
+        Mock<IBERepository> mockRepo = new Mock<IBERepository>();
+        mockRepo.Setup(r => r.getAllReviews()).Returns(fakeRepo);
+        IService service = new MovieService(mockRepo.Object);
 
-       List<BEReview> fakeRepo = new List<BEReview>{};
-       Mock<IBERepository> mockRepo = new Mock<IBERepository>();
-       mockRepo.Setup(r => r.getAllReviews()).Returns(fakeRepo);
-       IService service = new MovieService(mockRepo.Object);
-        
-       //Act
-       var ex = Assert.Throws<ArgumentException>(() => service.GetTopMoviesByReviewer(4));
+        //Act
+        var ex = Assert.Throws<ArgumentException>(() => service.GetTopRatedMovies(4));
 
-       //Assert
-       Assert.Equal("There is no top rated movies made by the reviewer", ex.Message);
-   }
+        //Assert
+        Assert.Equal("There is no top rated movies", ex.Message);
+    }
+
+    [Fact]
+    public void GetTopMoviesByReviewerValidInputTest()
+    {
+        //Arrange
+        List<BEReview> fakeRepo = new List<BEReview>
+        {
+            new BEReview { Reviewer = 1, Movie = 1, Grade = 5, ReviewDate = new DateTime(2020, 12, 25) },
+            new BEReview { Reviewer = 1, Movie = 2, Grade = 3, ReviewDate = new DateTime(2018, 7, 19) },
+            new BEReview { Reviewer = 2, Movie = 1, Grade = 5, ReviewDate = DateTime.Now },
+            new BEReview { Reviewer = 2, Movie = 2, Grade = 5, ReviewDate = DateTime.Now },
+            new BEReview { Reviewer = 2, Movie = 3, Grade = 5, ReviewDate = DateTime.Now },
+            new BEReview { Reviewer = 1, Movie = 4, Grade = 5, ReviewDate = new DateTime(2015, 6, 5) },
+            new BEReview { Reviewer = 2, Movie = 4, Grade = 5, ReviewDate = DateTime.Now },
+            new BEReview { Reviewer = 3, Movie = 4, Grade = 4, ReviewDate = DateTime.Now },
+            new BEReview { Reviewer = 4, Movie = 4, Grade = 4, ReviewDate = DateTime.Now }
+        };
+        Mock<IBERepository> mockRepo = new Mock<IBERepository>();
+        mockRepo.Setup(r => r.getAllReviews()).Returns(fakeRepo);
+        IService service = new MovieService(mockRepo.Object);
+        //Act
+        var result = service.GetTopMoviesByReviewer(1);
+        List<int> expectedResult = new List<int>();
+        expectedResult.Add(1);
+        expectedResult.Add(4);
+        expectedResult.Add(2);
+        //Assert
+        Assert.Equal(expectedResult, result);
+    }
+
+    [Fact]
+    public void GetTopMoviesByReviewerInvalidInputTest()
+    {
+        //Arrange
+
+        List<BEReview> fakeRepo = new List<BEReview> { };
+        Mock<IBERepository> mockRepo = new Mock<IBERepository>();
+        mockRepo.Setup(r => r.getAllReviews()).Returns(fakeRepo);
+        IService service = new MovieService(mockRepo.Object);
+
+        //Act
+        var ex = Assert.Throws<ArgumentException>(() => service.GetTopMoviesByReviewer(4));
+
+        //Assert
+        Assert.Equal("There is no top rated movies made by the reviewer", ex.Message);
+    }
+
+    [Fact]
+    public void GetReviewersByMovieValidInputTest()
+    {
+        //Arrange
+        List<BEReview> fakeRepo = new List<BEReview>
+        {
+            new BEReview { Reviewer = 1, Movie = 1, Grade = 5, ReviewDate = new DateTime(2020, 12, 25) },
+            new BEReview { Reviewer = 1, Movie = 2, Grade = 3, ReviewDate = new DateTime(2018, 7, 19) },
+            new BEReview { Reviewer = 2, Movie = 1, Grade = 5, ReviewDate = DateTime.Now },
+            new BEReview { Reviewer = 2, Movie = 2, Grade = 5, ReviewDate = DateTime.Now },
+            new BEReview { Reviewer = 2, Movie = 3, Grade = 5, ReviewDate = DateTime.Now },
+            new BEReview { Reviewer = 1, Movie = 4, Grade = 5, ReviewDate = new DateTime(2015, 6, 5) },
+            new BEReview { Reviewer = 2, Movie = 4, Grade = 5, ReviewDate = DateTime.Now },
+            new BEReview { Reviewer = 3, Movie = 4, Grade = 4, ReviewDate = DateTime.Now },
+            new BEReview { Reviewer = 4, Movie = 4, Grade = 4, ReviewDate = DateTime.Now }
+        };
+        Mock<IBERepository> mockRepo = new Mock<IBERepository>();
+        mockRepo.Setup(r => r.getAllReviews()).Returns(fakeRepo);
+        IService service = new MovieService(mockRepo.Object);
+        //Act
+        var result = service.GetReviewersByMovie(1);
+        List<int> expectedResult = new List<int>();
+        expectedResult.Add(2);
+        expectedResult.Add(1);
+        //Assert
+        Assert.Equal(expectedResult, result);
+    }
+
+    [Fact]
+    public void GetReviewersByMovieInvalidInputTest()
+    {
+        //Arrange
+
+        List<BEReview> fakeRepo = new List<BEReview> { };
+        Mock<IBERepository> mockRepo = new Mock<IBERepository>();
+        mockRepo.Setup(r => r.getAllReviews()).Returns(fakeRepo);
+        IService service = new MovieService(mockRepo.Object);
+
+        //Act
+        var ex = Assert.Throws<ArgumentException>(() => service.GetReviewersByMovie(1));
+
+        //Assert
+        Assert.Equal("No one has reviewed this movie", ex.Message);
+    }
 }
