@@ -312,7 +312,7 @@ public class UnitTest1
     }
 
     /// <summary>
-    /// Tests whether we get the correct
+    /// Tests whether we get get the ONE movie with the highest number of top rates.
     /// </summary>
     [Fact]
     public void GetMoviesWithHighestNumberOfTopRatesTestValidInput()
@@ -340,6 +340,9 @@ public class UnitTest1
         Assert.Equal(expectedResult, result);
     }
 
+    /// <summary>
+    /// Tests whether we can extract two or more movies, if they have the same amount of top rates 
+    /// </summary>
     [Fact]
     public void GetMoviesWithHighestNumberOfTopRatesValidInputTwoOrMoreMaxTest()
     {
@@ -370,10 +373,10 @@ public class UnitTest1
         Assert.Equal(expectedResult, result);
     }
 
+    /// <summary>
+    /// Tests whether we get the correct exception, when we insert an invalid input
+    /// </summary>
     [Fact]
-    /*
-     * Checks for exception
-     */
     public void GetMoviesWithHighestNumberOfTopRatesInvalidInputTest()
     {
         //Arrange
@@ -391,6 +394,9 @@ public class UnitTest1
         Assert.Equal("No movies has a rating of 5", ex.Message);
     }
 
+    /// <summary>
+    /// Tests whether we can extract the most productive SINGULAR reviewer.
+    /// </summary>
     [Fact]
     public void GetMostProductiveReviewersTestValidInputTest()
     {
@@ -417,6 +423,8 @@ public class UnitTest1
         //Assert
         Assert.Equal(expectedResult, result);
     }
+
+    /// Tests whether we can extract two or more most productive reviewers, if they have the same amount of reviews 
 
     [Fact]
     public void GetMostProductiveReviewersTwoOrMoreValidInputTest()
@@ -446,6 +454,9 @@ public class UnitTest1
         Assert.Equal(expectedResult, result);
     }
 
+    /// <summary>
+    /// Tests whether the method throws the correct exception, when we insert an invalid input
+    /// </summary>
     [Fact]
     public void GetMostProductiveReviewersInvalidInputTest()
     {
@@ -464,6 +475,9 @@ public class UnitTest1
     }
 
 
+    /// <summary>
+    /// Extracts the highest rated movies
+    /// </summary>
     [Fact]
     public void GetTopRatedMoviesValidInputTest()
     {
@@ -487,9 +501,9 @@ public class UnitTest1
         Assert.Equal(expectedResult, result);
     }
 
-/*
- * Checks for exception
- */
+/// <summary>
+/// Checks if the correct exception message prints, when the input is invalid
+/// </summary>
     [Fact]
     public void GetTopRatedMoviesInvalidInputTest()
     {
@@ -507,6 +521,10 @@ public class UnitTest1
         Assert.Equal("There is no top rated movies", ex.Message);
     }
 
+/// <summary>
+/// Checks to see, if we can extract the highest rated movies, and thereafter sort by the date, if two movies
+/// has the same average rate
+/// </summary>
     [Fact]
     public void GetTopMoviesByReviewerValidInputTest()
     {
@@ -536,6 +554,9 @@ public class UnitTest1
         Assert.Equal(expectedResult, result);
     }
 
+/// <summary>
+/// Checks to see if the correct exception message is thrown, if an invalid input is inserted
+/// </summary>
     [Fact]
     public void GetTopMoviesByReviewerInvalidInputTest()
     {
@@ -553,6 +574,10 @@ public class UnitTest1
         Assert.Equal("There is no top rated movies made by the reviewer", ex.Message);
     }
 
+/// <summary>
+/// Checks to see if we can different reviews for a singular movie by the reviewers , first sorted by rating
+/// and thereafter by date
+/// </summary>
     [Fact]
     public void GetReviewersByMovieValidInputTest()
     {
@@ -581,6 +606,9 @@ public class UnitTest1
         Assert.Equal(expectedResult, result);
     }
 
+/// <summary>
+/// Checks to see if the correct exception message is thrown, if the
+/// </summary>
     [Fact]
     public void GetReviewersByMovieInvalidInputTest()
     {
