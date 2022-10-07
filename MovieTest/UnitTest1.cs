@@ -55,7 +55,7 @@ public class UnitTest1
 
     #endregion
 
-    #region GetMoviesWithHighestNumberOfTopRatesTestValidInput
+    #region GetMoviesWithHighestNumberOfTopRates
 
     public static IEnumerable<Object[]> GetMoviesWithHighestNumberOfTopRatesTestValidInputTestCase()
     {
@@ -96,7 +96,7 @@ public class UnitTest1
 
     #endregion
     
-    #region GetTopRatedMoviesValidInputTest
+    #region GetTopRatedMovies
 
     public static IEnumerable<Object[]> GetTopRatedMoviesValidInputTestTestCase()
     {
@@ -116,7 +116,7 @@ public class UnitTest1
 
     #endregion
 
-    #region GetTopMoviesByReviewerValidInputTest
+    #region GetTopMoviesByReviewer
 
     public static IEnumerable<Object[]> GetTopMoviesByReviewerValidInputTestTestCase()
     {
@@ -140,7 +140,7 @@ public class UnitTest1
     
     #endregion
 
-    #region GetReviewersByMovieValidInputTest
+    #region GetReviewersByMovie
 
     public static IEnumerable<Object[]> GetReviewersByMovieValidInputTestTestCase()
     {
